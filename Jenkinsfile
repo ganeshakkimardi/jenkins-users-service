@@ -23,7 +23,7 @@ pipeline {
         
         stage('quality'){
             steps{
-                sh 'mvn sonar:sonar'
+                sh "echo skipping"
             }
         }
         
