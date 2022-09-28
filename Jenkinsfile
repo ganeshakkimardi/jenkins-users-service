@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('scm') {
-            steps {
-                // Get some code from a GitHub repository
-                git 'https://github.com/vinod-kayartaya/springboot-customer-service.git'
-            }
-        }
         
         stage('clean'){
             steps{
