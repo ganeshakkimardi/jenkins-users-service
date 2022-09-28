@@ -21,11 +21,13 @@ pipeline {
             }
         }
         
+        /*
         stage('quality'){
             steps{
                 sh 'mvn sonar:sonar'
             }
         }
+        */
         
         stage('test'){
             steps{
@@ -36,6 +38,12 @@ pipeline {
         stage('jar'){
             steps{
                 sh 'mvn clean package -DskipTests=true'
+            }
+        }
+        
+        stage('dockerize'){
+            steps{
+                sh 'docker build -t user-service'
             }
         }
             
