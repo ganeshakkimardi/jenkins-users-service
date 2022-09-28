@@ -23,7 +23,7 @@ pipeline {
         
         stage('test'){
             steps{
-                sh "skipping"
+                sh "echo skipping"
             }
         }
         
