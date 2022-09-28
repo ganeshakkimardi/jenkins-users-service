@@ -23,17 +23,17 @@ pipeline {
         
         stage('quality'){
             steps{
-                sh "echo skipping"
+                sh 'mvn sonar:sonar'
             }
         }
         
         stage('test'){
             steps{
-                sh "echo skipping"
+                sh 'mvn test'
             }
         }
         
-        stage('build'){
+        stage('jar'){
             steps{
                 sh 'mvn clean package -DskipTests=true'
             }
