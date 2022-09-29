@@ -44,7 +44,7 @@ pipeline {
         
         stage('dockerize'){
             steps{
-                sh 'docker build -t ${DOCKER_IMG_NAME}:latest -t ${DOCKER_IMG_NAME}:${BUILD_ID} .'
+                sh 'docker build -t ${DOCKER_REPO}/${DOCKER_IMG_NAME}:latest -t ${DOCKER_REPO}/${DOCKER_IMG_NAME}:${BUILD_ID} .'
             }
         }
         
