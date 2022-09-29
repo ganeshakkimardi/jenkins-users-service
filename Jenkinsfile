@@ -48,15 +48,15 @@ pipeline {
             }
         }
         
-        /*
+        
         stage('integration tests'){
             steps{
-                sh 'docker run -dp 7070:8080 --rm --name ${DOCKER_TMP_CONTAINER_NAME} ${DOCKER_IMG_NAME}:latest'
+                sh 'docker run -dp 7070:8080 --rm --name ${DOCKER_TMP_CONTAINER_NAME} ${DOCKER_REPO}/${DOCKER_IMG_NAME}:latest'
                 sleep 10
                 sh 'curl -i http://localhost:7070/api/users'
             }
         }
-        */
+        
         stage('docker publish'){
             steps{
             withDockerRegistry([ credentialsId: 'docker_creds', url: '']){
