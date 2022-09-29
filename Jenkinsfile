@@ -40,7 +40,23 @@ pipeline {
                 sh 'docker build -t users-service:latest .'
             }
         }
+        
+        stage('integration tests'){
+            steps{
+                sh 'docker run -dp 7070:8080 --rm --name tmp-user-service-container users-service:latest'
+                sleep 10
+                sh 'curl -i http://localhost:7070/api/users'
+            }
+        }
             
         }
+        
+        post{
+            always{
+                sh 'docker stop tmp-users-service-container'
+            }
+
+        }
+
     }
 
