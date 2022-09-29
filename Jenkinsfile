@@ -47,6 +47,7 @@ pipeline {
                 sh 'docker build -t ${DOCKER_IMG_NAME}:latest -t ${DOCKER_IMG_NAME}:${BUILD_ID} .'
             }
         }
+        
         /*
         stage('integration tests'){
             steps{
@@ -66,11 +67,6 @@ pipeline {
             }
         }
         
-        stage('dockerize'){
-            steps{
-                sh 'docker build -t ${DOCKER_IMG_NAME}:latest -t ${DOCKER_IMG_NAME}:${BUILD_ID} .'
-            }
-        }
             
      }
         
